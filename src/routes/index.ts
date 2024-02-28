@@ -6,6 +6,6 @@ const router = Router();
 
 router.get('/', controllers.primeira);
 
-router.post('/secundaria', body('tag').notEmpty().isLength({max:8,min:8}), controllers.secundaria);
+router.post('/secundaria', body('tag').notEmpty().isLength({max:9,min:8}), controllers.secundaria);
 
 export default router;
