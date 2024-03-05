@@ -22,7 +22,8 @@ const secundaria = (req: Request, res: Response) => {
         fetch(`https://api.clashroyale.com/v1/players/${tagurl}/battlelog`, {
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjVlNDZiODdmLTY4ZjMtNDkwZS04ZDBiLTI1YjZmZDQ1M2M4NCIsImlhdCI6MTcwOTA4NTA3OSwic3ViIjoiZGV2ZWxvcGVyLzcwYmY0YjNhLTIzMDUtZWRmZS0zYjZmLWYyZDE2M2M3ZWM3ZCIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyI0NS4yMzUuNDYuMjQ5Il0sInR5cGUiOiJjbGllbnQifV19.B2fcN9PaIooeSu8voAd_qopgXPIG4fxJHlHQUIlXrhIHzwO8i8Vu9vWp4FnJF5rAPc0-NHMXrYJrqtOYdZGtOQ"
+                "cache-control": "public max-age=600",
+                "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6Ijk2OTg4ZTc2LWFiNGItNGU4NS04ODg5LTc4NDgxYTQ5MGE2MyIsImlhdCI6MTcwOTUxNzA5MSwic3ViIjoiZGV2ZWxvcGVyLzcwYmY0YjNhLTIzMDUtZWRmZS0zYjZmLWYyZDE2M2M3ZWM3ZCIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyIxNzkuMTA2LjE0LjI0NCJdLCJ0eXBlIjoiY2xpZW50In1dfQ.lgrk7lH-BWfRDanagAHwX_uJeVMpvnm0-2o5mES7PwWIoLr99t18RBVB5N3RAxmNQVdeEiYFwI7YNEYpet4fXA"
             }
         })
             .then(res => res.json())
@@ -30,7 +31,8 @@ const secundaria = (req: Request, res: Response) => {
                 fetch(`https://api.clashroyale.com/v1/players/${tagurl}`, {
                     headers: {
                         "Content-Type": "application/json",
-                        "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjVlNDZiODdmLTY4ZjMtNDkwZS04ZDBiLTI1YjZmZDQ1M2M4NCIsImlhdCI6MTcwOTA4NTA3OSwic3ViIjoiZGV2ZWxvcGVyLzcwYmY0YjNhLTIzMDUtZWRmZS0zYjZmLWYyZDE2M2M3ZWM3ZCIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyI0NS4yMzUuNDYuMjQ5Il0sInR5cGUiOiJjbGllbnQifV19.B2fcN9PaIooeSu8voAd_qopgXPIG4fxJHlHQUIlXrhIHzwO8i8Vu9vWp4FnJF5rAPc0-NHMXrYJrqtOYdZGtOQ"
+                        "cache-control": "public max-age=600",
+                        "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6Ijk2OTg4ZTc2LWFiNGItNGU4NS04ODg5LTc4NDgxYTQ5MGE2MyIsImlhdCI6MTcwOTUxNzA5MSwic3ViIjoiZGV2ZWxvcGVyLzcwYmY0YjNhLTIzMDUtZWRmZS0zYjZmLWYyZDE2M2M3ZWM3ZCIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyIxNzkuMTA2LjE0LjI0NCJdLCJ0eXBlIjoiY2xpZW50In1dfQ.lgrk7lH-BWfRDanagAHwX_uJeVMpvnm0-2o5mES7PwWIoLr99t18RBVB5N3RAxmNQVdeEiYFwI7YNEYpet4fXA"
                     }
                 })
                     .then(res => res.json())
