@@ -52,7 +52,7 @@
         </div>
     </nav>
 
-    <div class="container pt-5 px-md-4 col-12 col-md-8">
+    <div class="container pt-5 pb-5 px-md-4 col-12 col-md-8">
         <div class="d-flex justify-content-between h-75 border p-3 pt-sm-4 bg-white rounded-top">
             <div class="container-fluid p-0" id="up">
                 <div class="d-flex">
@@ -124,20 +124,106 @@
 
         <div class="border border-body-secondary bg-body-secondary d-flex p-0">
             <a class="text-decoration-none text-dark border border-0 border-body-secondary p-1 px-3" href="/jogador?tag=<%=tag%>"><i class="bi bi-house-fill"></i></a>
-            <a class="text-decoration-none text-dark border border-2 border-body-secondary border-top-0 border-bottom-0 p-1 px-3" href="/jogador/batalhas?tag=<%=tag%>&pag=1">Batalhas</a>
+            <a class="text-decoration-none text-dark border border-2 border-body-secondary border-top-0 border-bottom-0 p-1 px-3" href="/jogador/batalhas?tag=<%= tag %>&pag=1">Batalhas</a>
+        </div>
+
+        <div class="bg-white ">
+            <%dadosPaginado.forEach(function(element){ %>
+                
+                <div class="p-2 text-center align-items-center border border-danger">
+                    
+                    <h5><%=element.gameMode.name.replace(/Ranked1v1_/, '').replace(/([a-z])([A-Z])/g, '$1 $2')%></h5>
+
+                    <%element.team.forEach(function(elementTeam){ %>
+
+                        <%element.opponent.forEach(function(elementOpponent){ %>
+
+                            <div id="resultado" class="d-flex justify-content-center">
+                                <h5><%=elementTeam.crowns%></h5>-<h5><%=elementOpponent.crowns%></h5>
+                            </div>
+
+                            
+                            <div class="container d-flex ">
+                                
+                                <!-- infos player -->
+                                <div id="team" class="col-6" style="font-size: 13px;">
+                                    <div class="fw-bold"><%=elementTeam.name%></div>
+
+                                    <%if(elementTeam.clan){ %>
+                                        <span><%=elementTeam.clan.name%></span>
+                                    <%}else{%>
+                                        <span>no clan</span>
+                                    <%}%>
+
+                                    <div>
+                                        <%if(elementTeam.globalRank != null){ %>
+                                            <span>Rank#<%=elementTeam.globalRank%></span>
+                                        <% } %>
+                                    </div>
+
+                                    <div class="d-flex flex-wrap pe-2 pe-md-5 p-1">
+                                        <%elementTeam.cards.forEach(function(e){ %>
+                                            
+                                            <img src="<%= e.iconUrls.medium%>" class="w-25 object-fit-contain">
+                                        <% }) %>
+                                    </div>
+
+                                </div>
+
+                                <!-- infos oponente -->
+                                <div id="opponent" class="col-6"  style="font-size: 13px;">
+                                    <div class="fw-bold"><%=elementOpponent.name%></div>
+
+                                    <%if(elementOpponent.clan){ %>
+                                        <span><%=elementOpponent.clan.name%></span>
+                                    <%}else{%>
+                                        <span>no clan</span>
+                                    <%}%>
+                                    
+                                    <div>
+                                        <%if(elementOpponent.globalRank != null){ %>
+                                            <span>Rank#<%=elementOpponent.globalRank%></span>
+                                        <% } %>
+                                    </div>
+
+                                    <div class="d-flex flex-wrap ps-2 ps-md-5 p-1">
+                                        <%elementOpponent.cards.forEach(function(e){ %>
+                                            
+                                            <img src="<%= e.iconUrls.medium%>" class="w-25 object-fit-contain">
+                                        <% }) %>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        <%})%>
+                    <%})%>
+                </div>
+            <%})%>
         </div>
     </div>
-    <!-- fixed-bottom translate-middle start-100 top-50 text-center p-3 bg-dark text-white -->
-    <footer class="position-absolute top-100 start-50 translate-middle text-center bg-dark text-white pt-3 w-100" id="linksfooter">
+    
+    <nav aria-label="Page navigation example" class="bg-light">
+        <ul class="pagination justify-content-center mb-0">
+            <li><a class="page-link" href="/jogador/batalhas?tag=<%=tag%>&pag=1">1</a></li>
+            <li><a class="page-link" href="/jogador/batalhas?tag=<%=tag%>&pag=2">2</a></li>
+        </ul>
+    </nav>
+    
+    <footer class="text-center bg-dark text-white pt-3 w-100 " id="linksfooter">
         <h5>Social</h5>
         <div class="p-2">
-            <a href="https://www.linkedin.com/in/luiz-henrique-78a207230/" class="px-3 text-white"><i class="bi bi-linkedin"></i></a>
-            <a href="https://github.com/luizhenrq28/clashroyalestats" class="px-3 text-white"><i class="bi bi-github"></i></a>
+            <a href="https://www.linkedin.com/in/luiz-henrique-78a207230/" class="px-3 text-white"><i
+                    class="bi bi-linkedin"></i></a>
+            <a href="https://github.com/luizhenrq28/clashroyalestats" class="px-3 text-white"><i
+                    class="bi bi-github"></i></a>
             <a href="https://www.instagram.com/luizhenrq28/" class="px-3 text-white"><i class="bi bi-instagram"></i></a>
         </div>
         <hr>
         <p class="container col-9 align-items-center">Todo o conteúdo relacionado à Supercell disponibilizado neste sistema
-            segue a Política de Conteúdo de Fãs da Supercell, garantindo respeito aos direitos autorais e às diretrizes de uso de marca e conteúdo. <a class="text-white" target="_blank" href="https://supercell.com/en/fan-content-policy/pt/"><i class="bi bi-box-arrow-in-up-right"></i></a></p>
+            segue a Política de Conteúdo de Fãs da Supercell, garantindo respeito aos direitos autorais e às diretrizes de
+            uso de marca e conteúdo. <a class="text-white" target="_blank"
+                href="https://supercell.com/en/fan-content-policy/pt/"><i class="bi bi-box-arrow-in-up-right"></i></a></p>
     </footer>
 
 </body>

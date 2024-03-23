@@ -1,6 +1,6 @@
 import Express from 'express';
 import routes from './routes/index';
-import session from 'express-session';
+import 'dotenv/config';
 
 const app = Express();
 
@@ -9,12 +9,6 @@ app.use(Express.json());
 app.use(Express.urlencoded({extended:true}));
 app.use(Express.static('statics'));
 
-app.use(session({
-    secret: 'qidjxiajdawdjawidwaakxnakxk',
-    resave: false,
-    saveUninitialized: true
-}));
-
 app.use(routes);
 
-app.listen(5500, () => console.log('rodando!'));
+app.listen(process.env.port, () => console.log('rodando!'));
